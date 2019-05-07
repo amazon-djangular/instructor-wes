@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" type="text/css" 
+   href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+  <link rel="stylesheet" type="text/css" 
+   href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Success</h1>
+    <ul>
+      <li>{{ request.session.first_name }}</li>
+      <li>{{ request.session.last_name }}</li>
+      <li>{{ request.session.email }}</li>
+      <li>{{ request.session.password }}</li>
+    </ul>
+  </div>
+</body>
+</html>
