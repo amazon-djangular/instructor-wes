@@ -1,0 +1,44 @@
+h2 {
+  margin: 0;
+  padding: 0;
+}
+
+.gold {
+  display: flex;
+  align-items: middle;
+  align-content: center;
+  justify-content: space-between;
+  width: 35%;
+}
+
+.gold-amount {
+  padding: 5px 10px;
+  border: 1px solid black;
+}
+
+.locations {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.location {
+  text-align: center;
+  padding: 20px;
+  border: 1px solid black;
+  box-sizing: border-box;
+}
+
+.activity-list {
+  border: 1px solid black;
+  overflow-y: auto;
+  height: 200px;
+}
+
+.green {
+  color: green;
+}
+
+.red {
+  color: red;
+}

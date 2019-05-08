@@ -8,11 +8,11 @@
    href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
   <link rel="stylesheet" type="text/css" 
    href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
-  <title>Document</title>
+  <title>{{ title }}</title>
 </head>
 <body>
   <div class="container">
-    <h1>Hello World</h1>
+    <h1>{{ header_text }}</h1>
     <form action="/process/" method="post">
       {% csrf_token %}
       <label for="first_name">First Name:</label>

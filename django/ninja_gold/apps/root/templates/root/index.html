@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" type="text/css" 
+   href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+  <link rel="stylesheet" type="text/css" 
+   href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'root/css/style.css' %}">
+  <title>Document</title>
+</head>
+<body>
+  <div class="container">
+    <a href="/reset" class="button">Reset</a>
+    <div class="gold">
+      <h2>Your Gold:</h2>
+      <div class="gold-amount">{{ request.session.gold }}</div>
+    </div>
+    <div class="locations">
+      <div class="location">
+        <form action="/process_money/" method="post">
+          {% csrf_token %}
+          <h3>Farm</h3>
+          <p>(earns 10-20 golds)</p>
+          <input type="hidden" name="location" value="farm">
+          <input type="submit" value="Find Gold!">
+        </form>
+      </div>
+      <div class="location">
+        <form action="/process_money/" method="post">
+          {% csrf_token %}
+          <h3>Cave</h3>
+          <p>(earns 5-10 golds)</p>
+          <input type="hidden" name="location" value="cave">
+          <input type="submit" value="Find Gold!">
+        </form>
+      </div>
+      <div class="location">
+        <form action="/process_money/" method="post">
+          {% csrf_token %}
+          <h3>House</h3>
+          <p>(earns 2-5 golds)</p>
+          <input type="hidden" name="location" value="house">
+          <input type="submit" value="Find Gold!">
+        </form>
+      </div>
+      <div class="location">
+        <form action="/process_money/" method="post">
+          {% csrf_token %}
+          <h3>Casino</h3>
+          <p>(earns/takes 0-50 golds)</p>
+          <input type="hidden" name="location" value="casino">
+          <input type="submit" value="Find Gold!">
+        </form>
+      </div>
+    </div>
+    <div class="activities">
+      <h2>Activities:</h2>
+      <div class="activity-list">
+        {% for activity in request.session.activities %}
+          <p class="{{ activity.css_class }}">{{ activity.content }}</p>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</body>
+</html>
