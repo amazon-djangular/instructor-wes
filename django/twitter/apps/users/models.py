@@ -31,6 +31,14 @@ class UserManager(models.Manager):
             pw_hash=pw_hash,
         )
 
+    def login(self, form):
+        matching_users = User.objects.filter(email=form['email'])
+        if matching_users:
+            user = matching_users[0]
+            if bcrypt.checkpw(form['password'].encode(), user.pw_hash.encode()):
+                return (True, user)
+        return (False, "Email or password invalid")
+
 class User(models.Model):
     first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255)
