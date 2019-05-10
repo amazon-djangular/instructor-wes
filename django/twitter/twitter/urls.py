@@ -15,9 +15,15 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from django.shortcuts import redirect
+
+
+def catch_all(req):
+    return redirect('tweets:index')
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^users/', include('apps.users.urls', namespace='users')),
     url(r'^tweets/', include('apps.tweets.urls', namespace='tweets')),
+    url(r'^', catch_all)
 ]

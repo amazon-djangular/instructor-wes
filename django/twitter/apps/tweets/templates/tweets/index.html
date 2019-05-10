@@ -12,8 +12,35 @@
 </head>
 <body>
   <div class="container">
-    <h1>Success</h1>
+    <h1>Welcome to Twitter, {{ user.first_name }}</h1>
     <a href="{% url 'users:logout' %}" class="button">Logout</a>
+    <form action="{% url 'tweets:create' %}" method='post'>
+      {% csrf_token %}
+      <textarea name="content" cols="30" rows="10"></textarea>
+      <input type="submit" value="Add Tweet">
+    </form>
+    {% if messages %}
+      <ul class="messages">
+        {% for message in messages %}
+          <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+    <div class="tweets">
+      {% for tweet in tweets %}
+        <div class="tweet">
+          <h2>{{ tweet.creator.first_name }} {{ tweet.creator.last_name }} says:</h2>
+          <p>{{ tweet.content }}</p>
+          <p>Tweeted at: {{ tweet.created_at }}</p>
+          <p>Liked {{ tweet.liked_users.count }} times</p>
+          {% if user in tweet.liked_users.all %}
+            <a href="{% url 'tweets:remove_like' tweet.id %}" class="button">Unlike</a>
+          {% else %}
+            <a href="{% url 'tweets:add_like' tweet.id %}" class="button">Like</a>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
   </div>
 </body>
 </html>
