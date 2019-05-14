@@ -1,0 +1,8 @@
+<h1 (click)='onClick()'>Welcome to {{ title }}!</h1>
+<ul>
+  <app-yay *ngFor='let food of listOfFoods' [data]='food'></app-yay>
+</ul>
+
+<ul>
+  <app-yay *ngFor='let pet of listOfPets' [data]='pet'></app-yay>
+</ul>
