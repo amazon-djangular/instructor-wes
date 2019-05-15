@@ -3,14 +3,16 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { YayComponent } from './yay/yay.component';
+import { LocationsComponent } from './locations/locations.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    YayComponent
+    YayComponent,
+    LocationsComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

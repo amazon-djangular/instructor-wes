@@ -7,6 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class YayComponent implements OnInit {
   shouldDisplay: boolean = false;
+  task: object;
   @Input() data: string;
 
   constructor() { }
