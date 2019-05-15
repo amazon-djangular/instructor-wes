@@ -1,0 +1,7 @@
+<div class="container">
+  <div *ngFor='let location of locations' class="location">
+    <h2>{{ location.name | uppercase }}</h2>
+    <p>(between {{ location.minGold }} and {{ location.maxGold }} golds)</p>
+    <button (click)='onClick(location.id)'>Find Gold</button>
+  </div>
+</div>

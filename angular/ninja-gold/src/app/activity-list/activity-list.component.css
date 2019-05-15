@@ -1,0 +1,13 @@
+.activities {
+  border: 1px solid black;
+  overflow-y: auto;
+  height: 200px;
+}
+
+.green {
+  color: green;
+}
+
+.red {
+  color: red;
+}

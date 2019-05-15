@@ -1,0 +1,13 @@
+<div class="container">
+  <p>Activities:</p>
+  <div class="activities">
+    <!-- <ng-container *ngFor='let activity of activities'>
+      <p *ngIf='activity.goldAmt >= 0;else lost' class="green">Won {{ activity.goldAmt }} golds at the (locationId) {{ activity.locationId }} at {{ activity.createdAt }}</p>
+
+      <ng-template #lost>
+        <p class="red">Lost {{ activity.goldAmt * -1 }} golds at the (locationId) {{ activity.locationId }} at {{ activity.createdAt }}</p>
+      </ng-template>
+    </ng-container> -->
+    <p *ngFor="let activity of activities" [class.green]="activity.goldAmt >= 0" [class.red]="activity.goldAmt < 0">{{ activity.goldAmt >= 0 ? 'won' : 'lost' }} golds at the (locationId) {{ activity.locationId }} at {{ activity.createdAt | date }}</p>
+  </div>
+</div>

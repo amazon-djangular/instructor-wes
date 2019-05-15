@@ -1,0 +1,12 @@
+.container {
+  display: flex;
+  flex-wrap: auto;
+  justify-content: space-evenly;
+}
+
+.location {
+  width: 300px;
+  padding: 10px;
+  border: 1px solid black;
+  text-align: center;
+}
