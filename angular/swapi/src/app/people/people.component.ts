@@ -14,11 +14,11 @@ export class PeopleComponent implements OnInit {
   constructor(private peopleService: PeopleService) { }
 
   ngOnInit() {
-    let obs: Observable<People> = this.peopleService.getPeople();
-    obs.subscribe((data) => {
-      console.log(data);
-      this.people = data.results;
-    });
+    this.peopleService.people$
+      .subscribe(data => {
+        this.people = data;
+      })
+    this.peopleService.getPeople();
   }
 
 }

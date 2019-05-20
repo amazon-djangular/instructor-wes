@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { PeopleService } from '../people.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { PeopleService } from '../people.service';
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.css']
 })
-export class SearchComponent implements OnInit, OnChanges {
+export class SearchComponent implements OnInit {
   searchText: string = '';
 
   onSearch() {
@@ -17,9 +17,5 @@ export class SearchComponent implements OnInit, OnChanges {
   constructor(private peopleService: PeopleService) { }
 
   ngOnInit() {
-  }
-
-  ngOnChanges(changes: SimpleChanges) {
-    console.log(changes);
   }
 }

@@ -1,3 +1,11 @@
-<input [(ngModel)]="searchText">
+<input 
+[(ngModel)]="searchText"
+required
+minlength='3'
+#search='ngModel'
+>
 <button (click)='onSearch()'>Search For Character</button>
-<p>{{ searchText }}</p>
+<div *ngIf='search.errors'>
+  <p class="error" *ngIf="search.errors.required">Please enter a search query</p>
+  <p class="error" *ngIf="search.errors.minlength">Query must be at least 3 characters long</p>
+</div>
