@@ -1,0 +1,7 @@
+<form (submit)='onSubmit()'>
+  <label for="title">Title:</label>
+  <input [(ngModel)]='task.title' type="text" name="title">
+  <label for="description">Description:</label>
+  <input [(ngModel)]='task.description' type="text" name="description">
+  <input type="submit" value="Submit Task">
+</form>

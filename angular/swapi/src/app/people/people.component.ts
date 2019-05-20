@@ -16,7 +16,7 @@ export class PeopleComponent implements OnInit {
   ngOnInit() {
     let obs: Observable<People> = this.peopleService.getPeople();
     obs.subscribe((data) => {
-      console.log(data.results);
+      console.log(data);
       this.people = data.results;
     });
   }
