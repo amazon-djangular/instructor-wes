@@ -30,4 +30,20 @@ CORS_ORIGIN_WHITELIST = [
 ]
 ```
 
+### Deactivate CSRF
+CSRF is another protection that Django puts into place for us. It ensures that POST requests and form submissions are all initially served from the same port as Django. Luckily, this is easy to disable, and not necessary for us because we actually _want_ to be posting data from a different site.
+```python
+# Comment out or delete CsrfViewMiddleware
+MIDDLEWARE = [
+    'django.middleware.security.SecurityMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    # 'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+]
+```
+
 That's it! You should be able to accept HTTP requests from your Angular app!
