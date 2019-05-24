@@ -1,6 +1,6 @@
 # Custom Classes in Angular
 By now, you've probably seen warnings that look like this:
-![Error Message Image](https://github.com/amazon-djangular/instructor-wes/blob/master/lessons/angular/error-messages.png)
+![Error Message Image](https://github.com/amazon-djangular/instructor-wes/blob/master/lessons/angular/error-message.png)
 
 These errors (and most of the red squigglies you see in your code) are there because typescript is unaware of the structure of our objects. If we use generic types like `object` or `object[]`, we're being type-safe, and that's a good thing! But we're not being safe _enough_ for typescript. Really, we're just not being specific enough. The errors above are there because the generic javascript `object` does not include a property called 'fields' by default. To get around this issue, we can create our own custom classes and interfaces to tell typescript what properties we're expecting to be able to access. Let's take a look at how this works in the context of our ninja gold example.
 
